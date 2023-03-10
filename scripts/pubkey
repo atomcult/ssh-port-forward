@@ -1,0 +1,10 @@
+#!/bin/sh -eu
+
+err() {
+    echo "ERR: $@"
+    exit 1
+}
+
+[ "$(id -u)" -eq 0 ] || err "Must run as root"
+
+cat "${SNAP_COMMON}/id_rsa.pub"
